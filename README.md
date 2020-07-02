@@ -12,7 +12,7 @@ G H I
 ABC
 AEI
 ```
-Example output to stout:
+Example output to stdout:
 ```
 HELLO 0:0 4:4
 GOOD 4:0 4:3
