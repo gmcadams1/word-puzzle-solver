@@ -1,4 +1,4 @@
-from WordPuzzle import WordPuzzle
+from src.WordPuzzle import WordPuzzle
 
 class Driver:
     def __init__(self, input):
