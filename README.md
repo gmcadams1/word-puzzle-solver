@@ -3,15 +3,21 @@ Efficient word puzzle solver given any NxM size puzzle and a set of strings (wor
 
 Creates a hash table indexing every character in the puzzle for fast lookup.  Randomizes initial character selection and direction of lookup to avoid targeted worst-case scenarios.
 
+Standard word puzzle rules apply - valid possible directions are up, down, left, right, and any straight diagonals.
+
 Example input file:
 ```
-3x3
-A B C
-D E F
-G H I
-ABC
-AEI
+5x5
+H A S D F
+G E Y B H
+J K L Z X
+C V B L N
+G O O D O
+HELLO
+GOOD
+BYE
 ```
+
 Example output to stdout:
 ```
 HELLO 0:0 4:4
