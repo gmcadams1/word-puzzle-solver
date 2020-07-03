@@ -44,3 +44,8 @@ BYE 1:3 1:1
 Input1: 14x14 puzzle with Simpsons characters
 
 Input2: 54x88 stress-test puzzle with Pokemon
+
+## Run
+python3 main.py
+
+python3 main.py myinput1.txt myinput2.txt ...
