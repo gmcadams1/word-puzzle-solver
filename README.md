@@ -36,4 +36,5 @@ BYE 1:3 1:1
 
 ## Included Test Cases
 Input1: 14x14 puzzle with Simpsons characters
+
 Input2: 54x88 stress-test puzzle with Pokemon
