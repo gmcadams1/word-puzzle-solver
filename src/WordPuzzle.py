@@ -1,3 +1,10 @@
+"""
+    File name: WordPuzzle.py
+    Author: Gregory McAdams
+    Date created: 6/30/2020
+    Date last modified: 7/02/2020
+    Python Version: 3.8
+"""
 import random
 
 class WordPuzzle:
