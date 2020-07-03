@@ -9,6 +9,10 @@ class WordPuzzle:
         self.lookup = {}            # Index each char in puzzle
         self.create_puzzle()
     
+    # Return int value for a char
+    def hash_fn(self, char):
+        return ord(char)
+    
     # Init puzzle and data structures
     def create_puzzle(self):
         # Create char 2d array and hash table for fast lookup
@@ -22,9 +26,11 @@ class WordPuzzle:
             self.array_puzzle.append(row)
     
     # Try to find a word in the puzzle
+    # Return ((start_row,start_col),(end_row,end_col))
     def find_word(self, word):
         full_pos = None
         
+        # Get indexed location of first letter in the target word
         # Randomize order in which first letter location is picked
         random.shuffle(self.lookup[self.hash_fn(word[0])])
         for start_row,start_col in self.lookup[self.hash_fn(word[0])]:
@@ -32,11 +38,11 @@ class WordPuzzle:
                 'LEFT', 'RIGHT', 'UP', 'DOWN', 
                 'UPLEFT', 'UPRIGHT', 'DOWNLEFT', 'DOWNRIGHT'
             ]
-            # Randomize direction order
+            # Randomize pick order of direction exploration
             random.shuffle(dirs)
             for dir in dirs:
                 # Get the end coordinates as a tuple if word is found
-                end_pos = self.go_dir(start_row, start_col, word, dir)
+                end_pos = self.__go_dir(start_row, start_col, word, dir)
                 # If we received a non-empty tuple
                 if len(end_pos) > 0:
                     full_pos = ((start_row,start_col),end_pos)
@@ -47,7 +53,7 @@ class WordPuzzle:
         return full_pos
     
     # Return (end_row,end_col)
-    def go_dir(self, start_x, start_y, word, dir):
+    def __go_dir(self, start_x, start_y, word, dir):
         match_count = 1
         end_pos = ()
         x = None
@@ -102,12 +108,9 @@ class WordPuzzle:
             # If we didn't match the full word
             if match_count != len(word):
                 end_pos = ()
+        # Ran out of bounds - direction not possible given the word
         except IndexError:
             end_pos = ()
         
         # Returns ending position as tuple if entire word was matched
         return end_pos
-    
-    # Return int value for a char
-    def hash_fn(self, char):
-        return ord(char)

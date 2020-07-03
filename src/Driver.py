@@ -17,12 +17,13 @@ class Driver:
             if i < rows-1:
                 raw_puzzle += '\n'
         # Create Puzzle
-        self.puzzle = WordPuzzle(rows, cols, raw_puzzle)
+        puzzle = WordPuzzle(rows, cols, raw_puzzle)
         # For each word to find
         for word in contents:
-            # Find the word
-            answer = self.puzzle.find_word(word)
-            # Blank end position - didn't find it
+            # Find the word and return the start/end positions
+            # Ex. ((0,0),(2,2))
+            answer = puzzle.find_word(word)
+            # If we didn't find the word
             if answer == None:
                 print(word + ' not found')
             # Else, we found it
