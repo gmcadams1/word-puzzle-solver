@@ -4,15 +4,15 @@ Efficient word puzzle solver given any NxM size puzzle and a set of strings (wor
 ## Logic Overview
 Create a 2D array representing the entire puzzle, and then create a hash table indexing every character in the puzzle for fast lookup.
 
-Given a word to find, get the index of the first character in the 2D array.  Pick one of the indices randomly if duplicate first characters exists in the puzzle.
+Given a word to find, get the index of the first character in the 2D array.  Pick one of the indices randomly if duplicate first characters exist in the puzzle.
 
 Choose a random valid direction to look at.
 
 Then, for the rest of the word, compare each next character to the next adjacent character in the puzzle for equality.
 
-If we ever go out of bounds, or if character equality comparison fails, stop and pick another direction.
+If we ever go out of bounds, or if character equality comparison fails, stop and restart using another direction.
 
-Repeat for each direction, then repeat for each first character in the puzzle, if applicable.
+Repeat for each direction, then repeat for each first character in the puzzle, if there are more than one.
 
 As soon as an exact match is found, return the solution.
 
